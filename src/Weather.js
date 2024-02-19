@@ -1,26 +1,24 @@
-import React from "react";
+import React, {useState} from "react";
 import axios from "axios";
 
 export default function Weather(props){
+    let [pName, setpName] = useState("");
+    
+
     function displayTemper(response){
-        //console.log(response.data);
-    //    let cityElem = document.querySelector("#city");
-    //    let temperElem = document.querySelector("#temper");
-    //    let descriptionElem = document.querySelector("#description");
-    //    let humidElem = document.querySelector("#humid");
-    //    let windElem = document.querySelector("#wind");
-    //    let nowtimeElem = document.querySelector("#nowtime");
-    //   let iconElem = document.querySelector("#w-icon");
-    //    cityElem.innerHTML = response.data.city;
-    //    celsTemp = response.data.temperature.current;
-    //    temperElem.innerHTML = Math.round(celsTemp);
-    //    descriptionElem.innerHTML =response.data.condition.description;
-    //    humidElem.innerHTML = response.data.temperature.humidity;
-    //    windElem.innerHTML = Math.round(response.data.wind.speed);
-     //   nowtimeElem.innerHTML = formatDate(response.data.time * 1000);
-     //   iconElem.setAttribute("src", `${response.data.condition.icon_url}`);
-    //    dispalyForecast(response.data.coordinates);
-    alert(`The weather in city ${response.data.city} is ${response.data.temperature.current}`);
+        setpName(
+        <div className="showTemper">
+        <ul>
+          <li>Temperature: {Math.round(response.data.temperature.current)}°C</li>
+          <li>Description: {response.data.condition.description}</li>
+          <li>Humidity: {response.data.temperature.humidity}%</li>
+          <li>Wind: {Math.round(response.data.wind.speed)} km/h</li>
+         
+        </ul>
+      </div>
+      )
+       
+    
     }
 
     
@@ -30,6 +28,6 @@ export default function Weather(props){
       
 
     return(
-        <h2>Weather</h2>
+        <h2>{pName}</h2>
     )
 }
