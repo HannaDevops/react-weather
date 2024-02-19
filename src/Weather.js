@@ -3,9 +3,12 @@ import axios from "axios";
 
 export default function Weather(props){
     let [pName, setpName] = useState("");
-    
+    const api = axios.create({
+        headers: { Pragma: 'no-cache' },
+      });
 
     function displayTemper(response){
+         
         setpName(
         <div className="showTemper">
         <ul>
@@ -24,7 +27,7 @@ export default function Weather(props){
     
         let apiKey = "35af20a51228d76bt18bb4ac458c490o";
         let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${props.cityName}&key=${apiKey}&units=metric`;
-        axios.get(apiUrl).then(displayTemper);
+        api.get(apiUrl, api).then(displayTemper);
       
 
     return(
