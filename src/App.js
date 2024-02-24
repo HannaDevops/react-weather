@@ -10,10 +10,12 @@ function App() {
       <header className="App-header">
 
         <WeatherIcons icon="CLEAR_DAY" color="goldenrod" animate={true} />
-         <Weather cityName="Odessa"/>
+         <Weather />
       </header>
-      <p><a href="https://github.com/HannaDevops/react-weather.git" > Open-source code</a>, by
-      <a href="www.linkedin.com/in/hloban"> Hanna Loban</a></p>
+      <footer className="App-footer">
+      <p><a href="https://github.com/HannaDevops/react-weather.git" > Open-source code</a>, by 
+      <a href="www.linkedin.com/in/hloban">  Hanna Loban</a></p> 
+      </footer>
     </div>
   );
 }
